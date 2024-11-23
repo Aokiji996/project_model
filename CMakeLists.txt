@@ -2,33 +2,41 @@
 cmake_minimum_required(VERSION 3.22)
 
 # set the LANGUAGE
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
-set(CMAKE_CUDA_COMPILER /usr/local/cuda/bin/nvcc)
-set(CUDA_TOOLKIT_ROOT_DIR /usr/local/cuda-11.7)
+set(BUILD_SHARED_LIBS ON)
 
 ########################################################################################
 ############################## the start of the project ################################
 ########################################################################################
 
-project(RC_2023
+project(project_model
 LANGUAGES C CXX CUDA
 VERSION 0.0.1         # set the version
+DESCRIPTION "A project model written by Aokiji996 for fast c, cpp, cuda and python development with ROS2."
+HOMEPAGE_URL https://github.com/Aokiji996/project_model
 )
 
 ## set the output directory
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 # add the cmake submodule for convenience
-set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake;${CMAKE_MODULE_PATH}")
-include(message_type)
+file(GLOB_RECURSE cmake_files CONFIGURE_DEPENDS cmake/*.cmake)
+foreach(cmake_file ${cmake_files})
+    include(${cmake_file})
+endforeach()
+message_info("PROJECT: ${PROJECT_NAME}")
+message_info("VERSION: ${PROJECT_VERSION}")
+message_info("BUILD  : ${CMAKE_BUILD_TYPE}")
 
-# be careful about the option
-set(CMAKE_BUILD_TYPE Debug)
-#set(CMAKE_BUILD_TYPE Release)
+find_package(ament_cmake REQUIRED)
 
+# subproject
 add_subdirectory(main)
 add_subdirectory(external)
+
+# ros2
+ament_package()

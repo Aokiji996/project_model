@@ -1,12 +1,13 @@
-# the posiible build directory
+# the posiible byproduct directory
 .idea
 .vscode
 build
 bin
+lib
 cmake-build-debug
 cmake-build-release
 cmake-build-debug-coverage
-
+output
 
 # the config directory
 

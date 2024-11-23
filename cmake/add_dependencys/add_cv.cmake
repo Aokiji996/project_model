@@ -1,0 +1,11 @@
+macro(add_opencv target link)
+    find_package(OpenCV REQUIRED)
+    target_link_libraries(${target} ${link} ${OpenCV_LIBS})
+    message_link_information(${target} ${link} OpenCV)
+endmacro()
+
+macro(add_pcl target link)
+    find_package(PCL REQUIRED)
+    target_link_libraries(${target} ${link} ${PCL_LIBRARIES})
+    message_link_information(${target} ${link} PCL)
+endmacro()

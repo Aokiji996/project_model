@@ -37,6 +37,6 @@
 file(GLOB_RECURSE srcs CONFIGURE_DEPENDS src/*.cpp include/*.h)
 add_library(hello ${srcs})
 target_include_directories(hello PUBLIC include)
-message_info("add library hello: version ${HELLO_VERSION}")
+#message_info("add library hello: version ${HELLO_VERSION}")
 
 # add the dependencies of the library

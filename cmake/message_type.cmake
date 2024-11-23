@@ -37,3 +37,7 @@ endfunction()
 function(message_author_error ARGV)
     message(${MessageType} "${BoldRed}${ARGV}${ColourReset}")
 endfunction()
+
+function(message_link_information target link lib)
+    message("${MAGENTA}${target} link the ${lib} ${link}.${ColourReset}")
+endfunction()

@@ -1,0 +1,5 @@
+macro(add_thread target link)
+    find_package(Threads REQUIRED)
+    target_link_libraries(${target} ${link} Threads::Threads)
+    message_link_information(${target} ${link} thread)
+endmacro()

@@ -1,0 +1,13 @@
+macro(add_gazebo target link)
+    find_package(gazebo REQUIRED)
+    target_link_libraries(${target} ${link} gazebo)
+    target_include_directories(${target} ${link} ${GAZEBO_INCLUDE_DIRS})
+    message_link_information(${target} ${link} gazebo)
+endmacro()
+
+macro(add_pangolin target link)
+    find_package(Pangolin 0.8 REQUIRED)
+    target_link_libraries(${target} ${link} pango_display)
+    target_include_directories(${target} ${link} ${Pangolin_INCLUDE_DIRS})
+    message_link_information(${target} ${link} pangolin)
+endmacro()
