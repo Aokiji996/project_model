@@ -8,6 +8,7 @@ cmake-build-debug
 cmake-build-release
 cmake-build-debug-coverage
 output
+venv
 
 # the config directory
 

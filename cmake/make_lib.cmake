@@ -8,6 +8,6 @@ macro(make_lib name version description)
             DESCRIPTION ${description}
     )
     target_include_directories(${this_lib_name} PUBLIC include)
-    message("${Cyan}add library ${this_lib_name} version: ${thie_lib_version}${ColourReset}")
+    message(STATUS "${Cyan}add library ${this_lib_name} version: ${thie_lib_version}${ColourReset}")
 endmacro()
 

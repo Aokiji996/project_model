@@ -3,3 +3,4 @@ macro(add_yaml target link)
     target_link_libraries(${target} ${link} yaml-cpp)
     message_link_information(${target} ${link} yaml)
 endmacro()
+

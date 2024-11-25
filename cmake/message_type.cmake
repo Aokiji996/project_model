@@ -19,25 +19,29 @@ if(NOT WIN32)
 endif ()
 
 function(message_info ARGV)
-    message("${Blue}${ARGV}${ColourReset}")
+    message(STATUS "${Blue}${ARGV}${ColourReset}")
 endfunction()
 
 function(message_status ARGV)
-    message("${Green}${ARGV}${ColourReset}")
+    message(STATUS "${Green}${ARGV}${ColourReset}")
 endfunction()
 
 function(message_warning ARGV)
-    message("${BoldYellow}${ARGV}${ColourReset}")
+    message(WARNING "${BoldYellow}${ARGV}${ColourReset}")
 endfunction()
 
 function(message_author_warning ARGV)
-    message("${BoldYellow}${ARGV}${ColourReset}")
+    message(WARNING "${BoldYellow}${ARGV}${ColourReset}")
 endfunction()
 
 function(message_author_error ARGV)
-    message(${MessageType} "${BoldRed}${ARGV}${ColourReset}")
+    message(SEND_ERROR "${Red}${ARGV}${ColourReset}")
+endfunction()
+
+function(message_fatal_error ARGV)
+    message(FATAL_ERROR "${BoldRed}${ARGV}${ColourReset}")
 endfunction()
 
 function(message_link_information target link lib)
-    message("${MAGENTA}${target} link the ${lib} ${link}.${ColourReset}")
+    message(STATUS "${MAGENTA}${target} link the ${lib} ${link}.${ColourReset}")
 endfunction()
