@@ -14,6 +14,11 @@ macro(make_pybind pylib_name)
             OUTPUT_STRIP_TRAILING_WHITESPACE)
 
     target_include_directories(${pylib_name} PUBLIC include)
+    if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+        target_sources(${pylib_name} PUBLIC ${BACKWARD_ENABLE})
+        target_link_libraries(${pylib_name} PUBLIC Backward::Interface)
+        message_info("${pylib_name}: backward-cpp is activated.")
+    endif()
 
     install(TARGETS ${pylib_name}
             DESTINATION ${PYTHON_SITE_PACKAGES})

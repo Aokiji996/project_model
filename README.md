@@ -45,4 +45,6 @@ the line `kernel.yama.ptrace_scope = 1` to `kernel.yama.ptrace_scope = 0`
 
 ## TODO
 
+- ROS2
+- cpp-backward support
 - NITROS 

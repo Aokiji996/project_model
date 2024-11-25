@@ -33,6 +33,9 @@ message_info("PROJECT: ${PROJECT_NAME}")
 message_info("VERSION: ${PROJECT_VERSION}")
 message_info("BUILD  : ${CMAKE_BUILD_TYPE}")
 
+# add backward
+add_backward_cpp()
+
 # add python
 set_python()
 add_pybind()

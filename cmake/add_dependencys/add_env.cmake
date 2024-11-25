@@ -11,4 +11,6 @@ macro(add_pybind)
     add_subdirectory(${PROJECT_SOURCE_DIR}/ThirdParty/pybind11)
 endmacro()
 
-find_package(Python3 COMPONENTS Interpreter Development)
+macro(add_backward_cpp)
+    add_subdirectory(${PROJECT_SOURCE_DIR}/ThirdParty/backward-cpp)
+endmacro()

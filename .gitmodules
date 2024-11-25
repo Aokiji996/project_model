@@ -1,3 +1,6 @@
 [submodule "ThirdParty/pybind11"]
 	path = ThirdParty/pybind11
 	url = https://github.com/pybind/pybind11.git
+[submodule "ThirdParty/backward-cpp"]
+	path = ThirdParty/backward-cpp
+	url = https://github.com/bombela/backward-cpp.git
