@@ -4,8 +4,7 @@
 #include <vector>
 
 int test(){
+    hello();
     std::cout << "hello, this is a test" << std::endl;
-    std::vector<int> arr;
-    std::cout << arr.at(100) << std::endl;
     return 0;
 }
